@@ -1,16 +1,18 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru">    
 <head>
     <meta charset="UTF-8">
     <title>Django Girls Blog</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'blog/css/blog.css' %}">
 </head>
 <body>
     <header class="header">
@@ -25,5 +27,39 @@
             {% endblock %}
         </div>
     </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-addres">
+                <img src="{% static 'blog/img/rub.png' %}" alt="rub">
+                <p class="addres">
+                    <a href="https://goo.gl/maps/ZZxd8QJaisueW2ZaA" target="_blank">109012, г. Москва, Кремль-9, 
+                        ФСО России - почтовый 123022, 
+                        г. Москва, ул. Красная Пресня, 44, стр. 2</a>
+                </p>
+            </div>
+            
+            <div class="footer-menu">
+                <p>Что ты хочешь?</p><br>
+                <ul class="menu">
+                    <li><a href="">Котик</a></li>
+                    <li><a href="">Песик</a></li>
+                    <li><a href="">Купи меня</a></li>
+                    <li><a href="">Листочек</a></li>
+                    <li><a href="">Рыбка</a></li>
+                </ul>
+            </div>
+            <div class="footer-menu footer-menu-2">
+                <p>Еще есть такое</p><br>
+                <ul class="menu">
+                    <li><a href="">Диван</a></li>
+                    <li><a href="">Кот на диване</a></li>
+                    <li><a href="">Окно</a></li>
+                    <li><a href="">Человек</a></li>
+                    <li><a href="">Холодильник</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

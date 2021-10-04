@@ -1,11 +1,14 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+    <a href="{% url 'post_new' %}" class="create-new-post">
+        ДОБАВИТЬ ПОСТ
+    </a>
     {% for post in posts %}
     <div class="content-post">
         <h3 class="content-title"><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h3>
         <p class="content-text">{{ post.text|linebreaksbr }}</p>
-        <p class="content-date">Дата публикации: {{ post.create_date }}</p>
+        <p class="content-date">Дата создания: {{ post.create_date }}</p>
     </div>
     {% endfor %}
 {% endblock %}

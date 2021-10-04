@@ -1,0 +1,202 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(148, 156, 255);
+    font-family: 'Nunito', sans-serif;
+}
+a{
+    text-decoration: none;
+    color: rgb(92, 92, 221);
+}
+a:active{
+    opacity: 0.7;
+}
+
+
+.container{
+    margin: 0 auto;
+    width: 1000px;
+}
+.header{
+    padding: 10px 0;
+    background-color: rgb(250, 142, 205);
+}
+.header-title{
+    display: inline-block;
+    background-color: honeydew;
+    padding: 10px;
+    width: 325px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px black;
+}
+.header-title a{
+    font-size: 50px;
+    font-family: 'Bonheur Royale', cursive;
+}
+.header-title a:hover{
+    color: rgba(255, 0, 0, 0.733);
+}
+.create-new-post{
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    color: white;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 300px;
+    padding: 15px;
+    background-color: rgba(4, 15, 163, 0.473);
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
+}
+.create-new-post:hover{
+    background-color: rgba(255, 0, 0, 0.733);
+    box-shadow: 5px 5px 10px black;
+}
+
+
+
+.content{
+    background-color: rgb(148, 156, 255);
+}
+.content .container{
+    padding: 20px;
+}
+.content-post{
+    padding: 10px 20px;
+    background-color: rgba(4, 15, 163, 0.473);
+    box-shadow: 5px 5px 15px black;
+    border-radius: 20px;
+    margin-bottom: 25px;
+}
+.content-title{
+    font-size: 30px;
+    color: white;
+    margin-bottom: 30px;
+}
+.content-title a{
+    font-size: 30px;
+    color: white;
+    margin-bottom: 30px;
+}
+.content-title a:hover{
+    color: rgba(252, 17, 17, 0.733);
+}
+.content-text{
+    font-size: 18px;
+    color: white;
+}
+
+.footer{
+    background-color: rgb(194, 194, 194);
+    padding: 20px ;  
+    min-height: 300px;  
+}
+.footer::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+.footer-addres{
+    display: inline-block;
+    height: 110px;
+    width: 480px;
+}
+.footer-addres img{
+    
+    float: left;
+    width: 80px;
+    height: 110px;
+}
+.footer-addres .addres{
+    display: block;
+    padding: 0;
+    margin: 0;
+    margin-left: 100px;
+    width: 380px;
+    white-space: pre-line;
+}
+.footer-addres .addres a{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+}
+.footer-menu{
+    margin-left: 50px;
+    width: 170px;
+    display: inline-block;
+}
+.footer-menu p{
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: rgb(92, 92, 221);
+    font-weight: bold;
+}
+.footer-menu .menu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.footer-menu a{
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(97, 3, 66);
+}
+.footer-menu a:hover,
+.footer-addres a:hover{
+    color: rgba(255, 0, 0, 0.733);
+    text-decoration: underline;
+}
+
+
+
+.form-post label{
+    font-size: 20px;
+    color: white;
+}
+.form-post-title input{
+    width: 500px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    
+}
+.form-post-text textarea{
+    width: 500px;
+    height: 100px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+}
+.form-post-text textarea:hover,
+.form-post-title input:hover{
+    box-shadow: 5px 5px 15px black;
+}
+.form-post-text textarea:focus,
+.form-post-title input:focus{
+    outline: none;
+    box-shadow: 5px 5px 15px black;
+}
+.form-save{
+    font-size: 20px;
+    font-weight: bold;
+    width: 160px;
+    padding: 15px 0;
+    border-radius: 10px;
+    border: none;
+    color: rgb(92, 92, 221);
+    margin-bottom: 20px;
+}
+.form-save:hover{
+    background-color: rgba(255, 50, 50, 0.842);
+    color: white;
+}
+.form-save:active{
+    opacity: 0.7;
+}
