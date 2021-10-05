@@ -158,7 +158,9 @@ a:active{
     color: white;
 }
 .form-post-title input{
-    width: 500px;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
     padding: 10px 15px;
     font-size: 16px;
     border-radius: 5px;
@@ -166,7 +168,10 @@ a:active{
     
 }
 .form-post-text textarea{
-    width: 500px;
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 200px;
     height: 100px;
     padding: 10px 15px;
     font-size: 16px;
@@ -193,10 +198,24 @@ a:active{
     color: rgb(92, 92, 221);
     margin-bottom: 20px;
 }
-.form-save:hover{
+.form-save:hover,
+.btn-post-edit:hover{
     background-color: rgba(255, 50, 50, 0.842);
     color: white;
 }
-.form-save:active{
+.form-save:active,
+.btn-post-edit:active{
     opacity: 0.7;
+}
+
+
+
+.btn-post-edit{
+    display: inline-block;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
 }
