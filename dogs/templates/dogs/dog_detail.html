@@ -1,0 +1,9 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="dog-detail dog">
+    <img src="{{ dog.image.url }}" alt="dog" class="dog-img">
+    <h3 class="dog-name">{{ dog.name }}</h3>
+    <p class="dog-text">{{ dog.text }}</p>
+</div>
+{% endblock %}

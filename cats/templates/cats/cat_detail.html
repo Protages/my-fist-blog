@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="cat-detail cat">
+        <h3 class="cat-name">{{ cat.name }}</h3>
+        <img src="{{ cat.image.url }}" alt="cat" class="cat-img">
+        <div class="description">
+            <p class="description-title">Описание:</p>
+            <p class="cat-text">{{ cat.text }}</p>
+        </div>
+        <div class="years">
+            <p class="years-title">Сердняя продолжительность жизни:</p>
+            <p class="cat-years">{{ cat.years }} лет</p>
+        </div>
+        <a href="{% url 'cats_list' %}" class="btn btn-post-edit">Назад</a>
+        
+    </div>
+{% endblock %}

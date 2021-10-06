@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    <div class="dogs">
+        {% for dog in dogs %}
+            <div class="dog">
+                <img src="{{ dog.image.url }}" alt="dog" class="dog-img">
+                <h3 class="dog-name"><a href="{% url 'dog_detail' pk=dog.pk %}">{{ dog.name }}</a></h3>
+                <p class="dog-description">{{ dog.description }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
