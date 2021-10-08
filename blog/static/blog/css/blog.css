@@ -13,13 +13,51 @@ a:active{
 }
 
 
+.error{
+    height: 500px;
+    width: 100%;
+    background: url('../img/sad-cat1.png') no-repeat center;
+    background-position: 50% 100px;
+}
+.error-title{
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-size: 35px;
+    text-align: center;
+}
+.error-text{
+    color: white;
+    font-size: 18px;
+    text-align: center;
+}
+
+
 .container{
     margin: 0 auto;
     width: 1000px;
 }
 .header{
+    position: relative;
     padding: 10px 0;
     background-color: rgb(250, 142, 205);
+}
+.header-menu{
+    min-width: 180px;
+    padding: 10px 20px;
+    display: block;
+    float: right;
+    background-color: rgba(4, 15, 163, 0.473);
+    border-radius: 10px;
+    list-style: none;
+}
+.header-menu a{
+    font-size: 28px;
+    color: white;
+}
+.header-menu a:hover{
+    color: rgb(250, 142, 205);
+    text-decoration: underline;
 }
 .header-title{
     display: inline-block;
@@ -56,34 +94,67 @@ a:active{
 }
 
 
+.btn-back{
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: block;
+    width: 50px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: white;
+    background-image: url("../img/back.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 70%;
+    transform: rotate(180deg);
+}
+.btn-back:hover{
+    background-color: rgba(255, 0, 0, 0.856);
+}
+
 
 .content{
     background-color: rgb(148, 156, 255);
 }
+.content-title{
+    text-align: center;
+    margin: 10px 0 30px;
+}
+.content-title h2{
+    color: white;
+    margin: 0;
+    font-size: 38px;
+    display: inline-block;
+    background-color: rgba(4, 15, 163, 0.473);
+    width: 400px;
+    border-radius: 50px;
+}
 .content .container{
     padding: 20px;
 }
-.content-post{
+.post{
+    position: relative;
     padding: 10px 20px;
     background-color: rgba(4, 15, 163, 0.473);
     box-shadow: 5px 5px 15px black;
     border-radius: 20px;
     margin-bottom: 25px;
 }
-.content-title{
+.post-title{
     font-size: 30px;
     color: white;
     margin-bottom: 30px;
 }
-.content-title a{
+.post-title a{
     font-size: 30px;
     color: white;
     margin-bottom: 30px;
 }
-.content-title a:hover{
+.post-title a:hover{
     color: rgba(252, 17, 17, 0.733);
 }
-.content-text{
+.post-text{
     font-size: 18px;
     color: white;
 }
@@ -150,7 +221,6 @@ a:active{
     color: rgba(255, 0, 0, 0.733);
     text-decoration: underline;
 }
-
 
 
 .form-post label{
@@ -222,20 +292,8 @@ a:active{
 .cats{
     color: white;
 }
-.cats-title{
-    text-align: center;
-    margin: 10px 0 30px;
-}
-.cats-title h2{
-    color: white;
-    margin: 0;
-    font-size: 38px;
-    display: inline-block;
-    background-color: rgba(4, 15, 163, 0.473);
-    width: 400px;
-    border-radius: 50px;
-}
 .cat{
+    position: relative;
     display: inline-block;
     vertical-align: top;
     width: 300px;

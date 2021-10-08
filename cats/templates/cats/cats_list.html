@@ -1,7 +1,12 @@
 {% extends 'blog/base.html' %}
 
+{% block header_menu %}
+    <li><a href="/">Наши посты</a></li>
+    <li><a href="{% url 'dogs_list' %}">Наши пёсели</a></li>
+{% endblock %}
+
 {% block content %}
-<div class="cats-title">
+<div class="content-title">
     <h2>Наши коты!</h2>
 </div>
     <div class="cats">

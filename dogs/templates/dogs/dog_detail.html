@@ -1,9 +1,15 @@
 {% extends 'blog/base.html' %}
 
+{% block header_menu %}
+    <li><a href="{% url 'cats_list' %}">Наши коты</a></li>
+    <li><a href="/">Наши посты</a></li>
+{% endblock %}
+
 {% block content %}
 <div class="dog-detail dog">
     <img src="{{ dog.image.url }}" alt="dog" class="dog-img">
     <h3 class="dog-name">{{ dog.name }}</h3>
-    <p class="dog-text">{{ dog.text }}</p>
+    <p class="dog-text">{{ dog.text|linebreaksbr }}</p>
+    <a href="{% url 'dogs_list' %}" class="btn btn-back"></a>
 </div>
 {% endblock %}
