@@ -41,10 +41,3 @@ def post_edit(request, pk):
             post.save()
             return redirect('post_detail', pk=post.pk)
     return render(request, 'blog/post_edit.html', {'form': form})
-
-
-def page_not_found(request, exception):
-    return render(request, '404.html', {})
-
-def page_500(request):
-    return HttpResponseServerError("sdsdsd")
