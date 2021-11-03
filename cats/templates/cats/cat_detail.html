@@ -18,5 +18,6 @@
             <p class="cat-years">{{ cat.years }} лет</p>
         </div>
         <a href="{% url 'cats_list' %}" class="btn btn-back"></a>
+        {% include 'blog/comments.html' %}
     </div>
 {% endblock %}

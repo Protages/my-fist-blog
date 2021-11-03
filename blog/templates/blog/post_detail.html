@@ -18,5 +18,6 @@
         <a href="{% url 'post_edit' pk=post.pk %}" class="btn btn-post-edit">Редактировать</a>
     {% endif %}
     <a href="/" class="btn btn-back"></a>
+    {% include 'blog/comments.html' %}
 </div>
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+
+{% block header_menu %}
+    <li><a href="{% url 'cats_list' %}">Наши коты</a></li>
+    <li><a href="{% url 'dogs_list' %}">Наши пёсели</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="comment-edit">
+        <form action="" method="POST" class="comment-form">{% csrf_token %}
+            {% for f in form %}
+                <div class="{{ f.name }}">{{ f }}</div>
+            {% endfor %}
+            <button type="submit" class="btn btn-comment-save">Сохранить</button>
+        </form>
+        
+    </div>
+{% endblock %}

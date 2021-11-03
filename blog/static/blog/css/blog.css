@@ -406,3 +406,117 @@ a:active{
     font-size: 20px;
     padding-right: 30px;
 }
+
+.comments{
+    padding-top: 10px;
+    position: relative;
+}
+.comments-title{
+    display: block;
+    color: white;
+    font-size: 24px;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 40px;
+}
+.comment-create{
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    color: rgb(92, 92, 221);
+    font-size: 18px;
+    font-weight: bold;
+    position: absolute;
+    top: 30px;
+    border:none;
+}
+.comment-create:hover{
+    background-color: rgba(255, 50, 50, 0.842);
+    color: white;
+}
+.comment-create:active{
+    opacity: 0.7;
+}
+.comment{
+    color: white;
+    margin-bottom: 10px;
+    background-color: rgb(194, 194, 194);
+    padding: 10px;
+    border-radius: 10px;
+}
+.comment-create-date{
+    color: rgb(92, 92, 221);
+    margin: 0;
+    font-size: 12px;
+}
+.comment-edit-date{
+    color: rgb(92, 92, 221);
+    margin: 0;
+    font-size: 12px;
+    float: right;
+}
+.comment-author{
+    color: rgb(97, 3, 66);
+    font-weight: bold;
+    margin: 0;
+    margin-top: 5px;
+}
+.comment-text{
+    color: rgb(92, 92, 221);
+    font-size: 18px;
+}
+.comment hr{
+    border-color: rgb(97, 3, 66);
+    background-color: rgb(97, 3, 66);
+    height: 0.1px;
+    opacity: 0.3;
+}
+.comment-form{
+    margin-bottom: 20px;
+}
+.comment-form .text textarea{
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    height: 54px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+}
+.comment-form .text textarea:hover{
+    box-shadow: 5px 5px 15px black;
+}
+.comment-form .text textarea:focus{
+    outline: none;
+    box-shadow: 5px 5px 15px black;
+}
+.comment-edit{
+    color: rgb(97, 3, 66);
+    font-size: 14px;
+}
+.comment-edit:hover{
+    text-decoration: underline;
+}
+
+.comment-edit .text textarea{
+    height: 90px;
+}
+.comment-edit .btn-comment-save{
+    font-size: 20px;
+    font-weight: bold;
+    width: 160px;
+    padding: 15px 0;
+    border-radius: 10px;
+    border: none;
+    color: rgb(92, 92, 221);
+    margin-top: 20px;
+}
+.comment-edit .btn-comment-save:hover{
+    background-color: rgba(255, 50, 50, 0.842);
+    color: white;
+}
+.comment-edit .btn-comment-save:active{
+    opacity: 0.7;
+}

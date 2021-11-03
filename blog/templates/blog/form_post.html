@@ -1,0 +1,5 @@
+{% for f in form %}
+    {{ f.label_tag }}
+    <div class="form-post-{{ f.name }}">{{ f }}</div>
+    <br>
+{% endfor %}

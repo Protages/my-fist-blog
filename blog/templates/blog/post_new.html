@@ -9,14 +9,7 @@
     <div class="post">
         <h3 class="post-title">Новый пост</h3>
         <form action="" method="POST" class="form-post">{% csrf_token %}
-            {% for f in form %}
-                {% if f.name == 'title' %}
-                    <label>Название:<div class="form-post-title">{{ f }}</div></label>
-                {% else %}
-                    <label>Текст:<div class="form-post-text">{{ f }}</div></label>
-                {% endif %}
-                <br>
-            {% endfor %}
+            {% include 'blog/form_post.html' %}
             <button type="submit" class="form-save btn">Сохранить</button>
             <a href="/" class="btn btn-back"></a>
         </form> 

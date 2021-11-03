@@ -1,7 +1,7 @@
-from django.http.response import HttpResponseServerError
+from datetime import datetime
 from django.shortcuts import get_object_or_404, render, redirect
-from .models import Post
-from .forms import PostForm
+from .models import Post, Comment
+from .forms import PostForm, CommentForm
 from django.utils import timezone
 
 # Create your views here.
@@ -12,7 +12,21 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    comments = post.comment_set.all()
+    if request.method == 'POST':
+        form_comment = CommentForm(request.POST)
+        if form_comment.is_valid():
+            comment = form_comment.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.create_date = datetime.now()
+            comment.save()
+    form_comment = CommentForm()  
+    return render(request, 'blog/post_detail.html', {
+        'post': post, 
+        'comments': comments, 
+        'form_comment': form_comment
+        })
 
 
 def post_new(request):
@@ -41,3 +55,16 @@ def post_edit(request, pk):
             post.save()
             return redirect('post_detail', pk=post.pk)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+
+def comment_edit(request, pk, post_pk=1):
+    comment = get_object_or_404(Comment, pk=pk)
+    form = CommentForm(instance=comment)
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.edit_date = datetime.now()
+            comment.save()
+            return redirect('post_detail', pk=comment.post.pk)
+    return render(request, 'blog/comment_edit.html', {'form': form})

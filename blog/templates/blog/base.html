@@ -22,7 +22,11 @@
                 {% block header_menu %}
                 {% endblock %}
             </ul>
-            
+            {% if user.username %}
+                <p>Привет, {{ user.username }}!</p>
+            {% else %}
+                <p>Войти</p>
+            {% endif %}
         </div>
     </header>
 
