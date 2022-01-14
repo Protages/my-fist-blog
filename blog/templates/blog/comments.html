@@ -1,11 +1,16 @@
 <hr>
 <div class="comments">
     <h4 class="comments-title">Комментарии</h4>
+
     <form action="" method="POST" class="comment-form">{% csrf_token %}
         {% for f in form_comment %}
             <div class="{{ f.name }}">{{ f }}</div>
         {% endfor %}
-        <button type="submit" class="comment-create">Добавить комментарий</button>
+        {% if user.is_authenticated %}
+            <button type="submit" class="comment-create">Добавить комментарий</button>
+        {% else %}
+            <a href="/" class="comment-create">Необходимо авторизироваться</a>
+        {% endif %}
     </form>
     {% for comment in comments %}
         <div class="comment">

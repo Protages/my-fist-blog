@@ -4,7 +4,7 @@ from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth import get_user_model
 
-# Create your models here.
+
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='Автор')
     title = models.CharField(max_length=200, verbose_name='Название')
@@ -36,7 +36,7 @@ class Comment(models.Model):
     edit_date = models.DateTimeField(blank=True, null=True, verbose_name='Дата последнего изменения')
 
     def __str__(self):
-        return '%sid %s' % (self.pk, self.author)
+        return f'{self.pk}id {self.author}'
 
     class Meta:
         ordering = ['-create_date', 'author']
