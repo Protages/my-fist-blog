@@ -520,3 +520,92 @@ a:active{
 .comment-edit .btn-comment-save:active{
     opacity: 0.7;
 }
+
+
+
+.auth-menu{
+    min-width: 180px;
+    padding: 10px 20px;
+    display: inline-block;
+    margin-left: 30px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: rgba(4, 15, 163, 0.473);
+    border-radius: 10px;
+}
+.auth-menu .username{
+    color: white;
+    font-size: 22px;
+    padding: 0;
+    margin: 0;
+}
+.auth-menu .login,
+.auth-menu .registration,
+.auth-menu .logout{
+    color: rgb(255, 87, 199);
+    font-weight: bold;
+}
+.auth-menu .login:hover,
+.auth-menu .registration:hover,
+.auth-menu .logout:hover{
+    color: rgba(238, 61, 61, 0.842);
+    text-decoration: underline;
+}
+
+
+.registration .form-registration label{
+    font-size: 20px;
+    color: white;
+}
+.registration .form-registration input,
+.registration .form-registration select{
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    
+}
+.registration .form-registration textarea{
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-height: 200px;
+    height: 100px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    resize: none;
+}
+.registration .form-registration .inp-reg{
+    width: 300px;
+}
+.registration .form-registration select{
+    width: 150px;
+}
+.registration .form-registration textarea:hover,
+.registration .form-registration input:hover,
+.registration .form-registration select:hover{
+    box-shadow: 5px 5px 15px black;
+}
+.registration .form-registration textarea:focus,
+.registration .form-registration input:focus,
+.registration .form-registration select:focus{
+    outline: none;
+    box-shadow: 5px 5px 15px black;
+}
+.registration .form-registration .form-save{
+    padding: 10px;
+    width: 240px;
+}
+.registration .form-registration .res-password{
+    font-size: 20px;
+    color: white;
+}
+.registration .form-registration .res-password:hover{
+    text-decoration: underline;
+    color: rgba(235, 60, 83, 0.877);
+}

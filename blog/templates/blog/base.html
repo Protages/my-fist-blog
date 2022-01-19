@@ -20,13 +20,22 @@
             <h1 class="header-title"><a href="/">Django Girls Blog!</a></h1>
             <ul class="header-menu">
                 {% block header_menu %}
+                    <li><a href="/">Наши посты</a></li>
+                    <li><a href="{% url 'cats_list' %}">Наши коты</a></li>
+                    <li><a href="{% url 'dogs_list' %}">Наши пёсели</a></li>
                 {% endblock %}
             </ul>
-            {% if user.username %}
-                <p>Привет, {{ user.username }}!</p>
-            {% else %}
-                <p>Войти</p>
-            {% endif %}
+            <div class="auth-menu">
+                {% if user.is_authenticated %}
+                    <p class="username">Привет, {{ user.username }}</p>
+                    <a href="{% url 'logout' %}" class="logout">Выйти</a>
+                {% else %}
+                    <p class="username">Вы не аутентифцированы,
+                        <br>пожалуйста <a href="{% url 'login' %}" class="login">войдите</a><br>
+                        или <a href="{% url 'registration' %}" class="registration">зарегестрируйтесь</a>
+                    </p>
+                {% endif %}
+            </div>
         </div>
     </header>
 

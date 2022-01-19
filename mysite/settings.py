@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
+from django.conf.global_settings import LOGIN_URL
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -29,6 +31,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 
+AUTH_USER_MODEL = 'users.User'
+LOGIN_URL = '/users/login/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 
 # Application definition
 
@@ -40,9 +49,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admindocs',
+    'django_countries',
     'blog.apps.BlogConfig',
     'cats.apps.CatsConfig',
     'dogs.apps.DogsConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [

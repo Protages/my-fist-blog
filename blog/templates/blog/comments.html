@@ -9,7 +9,7 @@
         {% if user.is_authenticated %}
             <button type="submit" class="comment-create">Добавить комментарий</button>
         {% else %}
-            <a href="/" class="comment-create">Необходимо авторизироваться</a>
+            <a href="{% url 'login' %}" class="comment-create">Необходимо авторизироваться</a>
         {% endif %}
     </form>
     {% for comment in comments %}
@@ -18,7 +18,7 @@
             {% if comment.edit_date %}
                 <p class="comment-edit-date">Отредактировано: {{ comment.edit_date }}</p>
             {% endif %}
-            <p class="comment-author">Автор: {{ comment.author }}</p>
+            <p class="comment-author">Автор: {{ comment.author.username }}</p>
             <hr>
             <p class="comment-text">{{ comment.text }}</p>
             {% if user == comment.author %} 
