@@ -597,7 +597,7 @@ a:active{
     outline: none;
     box-shadow: 5px 5px 15px black;
 }
-.registration .form-registration .form-save{
+.registration .form-save{
     padding: 10px;
     width: 240px;
 }
@@ -608,4 +608,10 @@ a:active{
 .registration .form-registration .res-password:hover{
     text-decoration: underline;
     color: rgba(235, 60, 83, 0.877);
+}
+
+
+.profile .user-data{
+    color: white;
+    font-size: 20px;
 }

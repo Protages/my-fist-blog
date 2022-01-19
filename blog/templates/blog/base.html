@@ -27,10 +27,12 @@
             </ul>
             <div class="auth-menu">
                 {% if user.is_authenticated %}
-                    <p class="username">Привет, {{ user.username }}</p>
-                    <a href="{% url 'logout' %}" class="logout">Выйти</a>
+                    <p class="username">Привет, <a href="{% url 'profile' %}" class="profile-ref login">{{ user.username }}</a><br>
+                        <a href="{% url 'logout' %}" class="logout">Выйти</a>
+                    </p>
+                    
                 {% else %}
-                    <p class="username">Вы не аутентифцированы,
+                    <p class="username">Вы не аутентифицированы,
                         <br>пожалуйста <a href="{% url 'login' %}" class="login">войдите</a><br>
                         или <a href="{% url 'registration' %}" class="registration">зарегестрируйтесь</a>
                     </p>
