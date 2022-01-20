@@ -21,6 +21,7 @@ class Registration(View):
             user = form.save()
             login(request, user)
             return redirect('/')
+        form = UserCreationForm(request.POST)
         return render(request, self.template_name, {'form': form})
 
 

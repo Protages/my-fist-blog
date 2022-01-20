@@ -4,9 +4,7 @@
 {% block content %}
     <div class="registration profile">
         <h1 class="registration-header">Страница профиля</h1>
-        {% if form.errors %}
-            <p>{{ form.errors.error }}</p>
-        {% endif %}
+        {% include 'registration/errors_msg.html' %}
         <p class="user-data">Ваш логин: {{ user.username }}</p>
         <p class="user-data">Ваша почта: {{ user.email }}</p>
         <form action="{% url 'profile' %}" method="post" class="form-registration">

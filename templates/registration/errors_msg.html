@@ -1,0 +1,6 @@
+{% if form.errors %}
+    <div class="errors-msg">
+        <p class="error-header">Неправильно введены следующие данные:</p><hr>
+        {{ form.errors }}
+    </div>
+{% endif %}

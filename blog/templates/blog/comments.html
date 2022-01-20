@@ -18,7 +18,13 @@
             {% if comment.edit_date %}
                 <p class="comment-edit-date">Отредактировано: {{ comment.edit_date }}</p>
             {% endif %}
-            <p class="comment-author">Автор: {{ comment.author.username }}</p>
+            <p class="comment-author">Автор: 
+                {% if comment.author.get_full_name %}
+                    {{ comment.author.get_full_name }}
+                {% else %}
+                    {{ comment.author.username }}
+                {% endif %}
+            </p>
             <hr>
             <p class="comment-text">{{ comment.text }}</p>
             {% if user == comment.author %} 

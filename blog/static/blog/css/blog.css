@@ -552,7 +552,40 @@ a:active{
     text-decoration: underline;
 }
 
+.errors-msg{
+    background-color: rgba(4, 15, 163, 0.473);
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+.errors-msg p{
+    margin: 0;
+    margin-bottom: -5px;
+    color: white;
+    font-size: 24px;
+}
+.errorlist{
+    margin: 0;
+    padding: 0;
+}
+.errorlist li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: white;
+    font-size: 0px;
+}
+.errorlist .errorlist li{
+    margin-left: 10px;
+    font-size: 20px;
+    list-style: inside;
+}
 
+
+.registration-header{
+    color: rgb(97, 3, 66);
+    font-size: 38px;
+}
 .registration .form-registration label{
     font-size: 20px;
     color: white;
