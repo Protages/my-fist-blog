@@ -19,6 +19,7 @@
         <h3 class="post-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
         <p class="post-text">{{ post.text|linebreaksbr }}</p>
         <p class="post-date">Дата создания: {{ post.create_date }}</p>
+        <p class="post-author">Автор поста: <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a></p>
     </div>
     {% endfor %}
 {% endblock %}

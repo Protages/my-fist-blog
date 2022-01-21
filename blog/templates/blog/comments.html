@@ -19,11 +19,7 @@
                 <p class="comment-edit-date">Отредактировано: {{ comment.edit_date }}</p>
             {% endif %}
             <p class="comment-author">Автор: 
-                {% if comment.author.get_full_name %}
-                    {{ comment.author.get_full_name }}
-                {% else %}
-                    {{ comment.author.username }}
-                {% endif %}
+                <a href="{{ comment.author.get_absolute_url }}">{{ comment.author }}</a>
             </p>
             <hr>
             <p class="comment-text">{{ comment.text }}</p>

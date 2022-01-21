@@ -1,13 +1,14 @@
-from os import name
 from django.urls import path, include
 from django.contrib.auth import views
 
-from .views import Registration, Profile, PasswordChangeDoneView
+from . import views
 
 
 urlpatterns = [
-    path('password_change/done/', PasswordChangeDoneView.as_view(), name='password_change_done'),
+    path('password_change/done/', views.PasswordChangeDoneView.as_view(), name='password_change_done'),
     path('', include('django.contrib.auth.urls')),
-    path('registration/', Registration.as_view(), name='registration'),
-    path('profile/', Profile.as_view(), name='profile'),
+    path('registration/', views.RegistrationView.as_view(), name='registration'),
+    path('profile/', views.ProfileView.as_view(), name='profile'),
+    path('profile/<slug:username>/', views.WatchUerProfileView.as_view(), name='show_user_profile'),
+    path('all/', views.AllUsersView.as_view(), name='all_users'),
 ]

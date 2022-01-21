@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+<div class="registration user-profile">
+    <h1 class="registration-header">Все пользователи</h1>
+    {% for user in users %}
+        <div class="user post">
+            <p><a href="{{ user.get_absolute_url }}">{{ user }}</a></p>
+            <p>Количество написанных постов: {{ user.post_set.all|length }}</p>
+            <!-- <p>{{ user.post_set.all }}</p> -->
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

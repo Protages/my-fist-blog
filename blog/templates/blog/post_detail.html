@@ -12,6 +12,7 @@
             <p>Дата публикации: {{ post.published_date }}</p>
         </div>
     {% endif %}
+    <p class="post-author">Автор поста: <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a></p>
     <h3 class="post-title">{{ post.title }}</h3>
     <p class="post-text">{{ post.text|linebreaksbr }}</p>
     {% if user.is_authenticated %}

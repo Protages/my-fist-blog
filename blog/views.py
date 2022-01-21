@@ -1,12 +1,15 @@
 from datetime import datetime
+from tkinter.messagebox import NO
+from turtle import title
 from django.shortcuts import get_object_or_404, render, redirect
+from django.views import View
 from .models import Post, Comment
 from .forms import PostForm, CommentForm
 from django.utils import timezone
 
 # Create your views here.
 def post_list(request):
-    posts = Post.objects.order_by('create_date')
+    posts = Post.objects.all()
     return render(request, 'blog/post_list.html', {'posts': posts})
 
 
@@ -68,3 +71,19 @@ def comment_edit(request, pk, post_pk=1):
             comment.save()
             return redirect('post_detail', pk=comment.post.pk)
     return render(request, 'blog/comment_edit.html', {'form': form})
+
+
+class SearchView(View):
+    template_name = 'blog/search.html'
+
+    def get(self, request):
+        query = request.GET['q']
+        if not(query.isspace() or query == ''):
+            posts = Post.objects.filter(title__icontains=query)
+        else:
+            posts = None
+        context = {
+            'posts': posts,
+            'query': query
+        }
+        return render(request, self.template_name, context)

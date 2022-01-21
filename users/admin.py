@@ -19,9 +19,9 @@ class UserAdmin(BaseUserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'username', 'password1', 'password2', 'country', 'favorite_category'),
+            'fields': ('email', 'username', 'password1', 'password2', 'first_name', 'last_name', 'country', 'favorite_category'),
         }),
     )
-    list_display = ('username', 'email', 'country', 'favorite_category', 'is_staff')
+    list_display = ('username', 'email', 'first_name', 'last_name', 'country', 'favorite_category', 'is_staff')
     list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups', 'favorite_category')
     search_fields = ('username', 'first_name', 'last_name', 'email', 'country', 'favorite_category')

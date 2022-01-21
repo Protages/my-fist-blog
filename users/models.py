@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import gettext_lazy as _
 from django_countries.fields import CountryField
+from django.urls import reverse
 
 
 class User(AbstractUser):
@@ -26,8 +27,14 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
-    def get(self, a):
-        return self
+    def __str__(self) -> str:
+        return self.get_full_name() if self.get_full_name() else self.username
+
+    def get_absolute_url(self):
+        return reverse('show_user_profile', kwargs={'username': self.username})
+
+    def count_posts(self):
+        return len(self.post_set.all())
 
 
     

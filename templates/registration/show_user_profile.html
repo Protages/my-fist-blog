@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+<div class="registration user-profile">
+    
+    {% if user == user_profile %}
+        <h1 class="registration-header">Ваша публичная страница профиля, {{ user_profile }}</h1>
+        <a href="{% url 'profile' %}" class="ref-change-passw">
+            <button class="form-save btn">Отредактировать профиль</button>
+        </a>
+    {% else %}
+        <h1 class="registration-header">Страница пользователя {{ user_profile }}</h1>
+    {% endif %}
+    {% if user_profile.get_full_name %}
+        <p class="full-name">Имя и фамилия пользователя: {{ user_profile.get_full_name }}</p>
+    {% endif %}
+    <p class="email">Почта пользователя: <a href="mailto:{{ user.email }}">{{ user_profile.email }}</a></p>
+    <p class="country">Страна пользователя: 
+        <a href="https://www.google.com/maps/place/{{ user.country.name }}/" target="_blank">
+            {{ user_profile.country.name }}
+        </a>
+    </p>
+    <h3>Посты пользователя:</h3>
+    {% for post in user_profile.post_set.all %}
+        <div class="post">
+            <p>Название: <a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>
+            <p>Дата создания: {{ post.create_date|date:"SHORT_DATE_FORMAT" }}</p>
+        </div>
+        
+    {% endfor %}
+</div>
+{% endblock %}

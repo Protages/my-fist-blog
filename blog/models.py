@@ -25,7 +25,7 @@ class Post(models.Model):
     class Meta:
         verbose_name='Пост'
         verbose_name_plural='Посты'
-        ordering=['create_date', 'title']
+        ordering=['-create_date', 'title']
 
 
 class Comment(models.Model):

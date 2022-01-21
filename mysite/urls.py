@@ -24,7 +24,9 @@ urlpatterns = [
     path('admin/doc/', include('django.contrib.admindocs.urls')),
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
-    path('users/', include('users.urls'))
+    path('cats/', include('cats.urls'), name='cats_list'),
+    path('dogs/', include('dogs.urls'), name='dogs_list'),
+    path('users/', include('users.urls')),
 ]
 
 if settings.DEBUG:

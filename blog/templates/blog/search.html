@@ -1,0 +1,20 @@
+{% extends 'blog/base.html' %}
+
+
+{% block content %}
+    <div class="registration">
+        {% if posts %}
+        <h1 class="registration-header">{{ posts|length }} результата поиска по запросу: {{ query }}</h1>
+            {% for post in posts %}
+                <div class="post">
+                    <h3 class="post-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+                    <p class="post-text">{{ post.text|linebreaksbr }}</p>
+                    <p class="post-date">Дата создания: {{ post.create_date }}</p>
+                    <p class="post-author">Автор поста: <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a></p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h1 class="registration-header">По вашему запросу {{ query }} ничего не найдено:(</h1>
+        {% endif %}
+    </div>
+{% endblock %} %}

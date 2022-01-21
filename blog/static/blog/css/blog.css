@@ -160,6 +160,16 @@ a:active{
     font-size: 18px;
     color: white;
 }
+.post-author a{
+    color: white;
+    font-size: 18px;
+}
+.post-author a:hover{
+    color: rgba(252, 17, 17, 0.733);
+    text-decoration: underline;
+}
+
+
 
 .footer{
     background-color: rgb(194, 194, 194);
@@ -196,8 +206,8 @@ a:active{
     font-size: 20px;
 }
 .footer-menu{
-    margin-left: 50px;
-    width: 170px;
+    margin-left: 30px;
+    width: 200px;
     display: inline-block;
 }
 .footer-menu p{
@@ -582,6 +592,9 @@ a:active{
 }
 
 
+.registration{
+    position: relative;
+}
 .registration-header{
     color: rgb(97, 3, 66);
     font-size: 38px;
@@ -647,4 +660,64 @@ a:active{
 .profile .user-data{
     color: white;
     font-size: 20px;
+}
+.profile .pub-profile-btn{
+    position: absolute;
+    top: 10px;
+    right: 30px;
+}
+
+
+.user-profile{
+    color: white;
+    font-size: 20px;
+}
+.user-profile  a{
+    color: rgb(97, 3, 66);
+    font-weight: bold;
+}
+.user-profile  a:hover{
+    text-decoration: underline;
+    color: rgba(235, 60, 83, 0.877);
+}
+
+
+.search{
+    display: inline-block;
+    color: rgb(133, 5, 90);
+    font-weight: bold;
+    font-size: 22px;
+}
+.search .search-inp {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 260px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+}
+.search .btn{
+    font-size: 18px;
+    font-weight: bold;
+    width: 80px;
+    padding: 5px 0;
+    border-radius: 10px;
+    border: none;
+    color: rgb(92, 92, 221);
+    vertical-align: middle;
+}
+.search .btn:hover{
+    background-color: rgba(255, 50, 50, 0.842);
+    color: white;
+}
+.search .btn:active{
+    opacity: 0.7;
+}
+.search .search-inp:hover{
+    box-shadow: 5px 5px 15px black;
+}
+.search .search-inp:focus{
+    outline: none;
+    box-shadow: 5px 5px 15px black;
 }

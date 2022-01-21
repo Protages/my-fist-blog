@@ -18,5 +18,8 @@
             
         </form>
         <a href="{% url 'password_change' %}" class="ref-change-passw"><button class="form-save btn">Сменить пароль</button></a>
+        <a href="{{ user.get_absolute_url }}" class="ref-change-passw pub-profile-btn">
+            <button class="form-save btn">Посмотреть мою публичную страницу профиля</button>
+        </a>
     </div>
 {% endblock %}
