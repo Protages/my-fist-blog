@@ -1,6 +1,4 @@
 from datetime import datetime
-from tkinter.messagebox import NO
-from turtle import title
 from django.shortcuts import get_object_or_404, render, redirect
 from django.views import View
 from .models import Post, Comment
@@ -15,7 +13,7 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    comments = post.comment_set.all()
+    comments = post.comment_set.filter(comment=None)
     if request.method == 'POST':
         form_comment = CommentForm(request.POST)
         if form_comment.is_valid():
@@ -87,3 +85,29 @@ class SearchView(View):
             'query': query
         }
         return render(request, self.template_name, context)
+
+
+class AnswerForCommentView(View):
+    template_name = 'blog/comment_answer.html'
+
+    def get(self, request, post_pk, comment_pk):
+        comment = Comment.objects.get(pk=comment_pk)
+        form = CommentForm()
+        context = {
+            'comment': comment,
+            'form': form
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, post_pk, comment_pk):
+        form = CommentForm(request.POST)
+        post = Post.objects.get(pk=post_pk)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.author = request.user
+            comment.post = post
+            comment.comment = Comment.objects.get(pk=comment_pk)
+            comment.create_date = datetime.now()
+            comment.save()
+            return redirect('post_detail', pk=post_pk)
+        return render(request, self.template_name, {'form': form})

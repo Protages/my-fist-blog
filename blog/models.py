@@ -1,3 +1,5 @@
+from operator import mod
+from re import T
 from django.db import models
 from django.conf import settings
 from django.utils import timezone
@@ -34,6 +36,10 @@ class Comment(models.Model):
     text = models.TextField(max_length=300, verbose_name='Текст комментария')
     create_date = models.DateTimeField(default=timezone.now, verbose_name='Дата создания')
     edit_date = models.DateTimeField(blank=True, null=True, verbose_name='Дата последнего изменения')
+    comment = models.ForeignKey(
+        'self', on_delete=models.CASCADE, related_name='comments',
+        blank=True, null=True, verbose_name='Комментарий к комментарию'
+    )
 
     def __str__(self):
         return f'{self.pk}id {self.author}'
