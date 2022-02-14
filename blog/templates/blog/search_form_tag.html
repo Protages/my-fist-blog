@@ -1,0 +1,14 @@
+<div class="search">
+    <form action="{% url 'search' %}" method="get">
+        <input type="search" class="search-inp" name="q" placeholder="Ищите пост" value="{{ query }}">
+        <span class="category-hidden">Выбрать категорию
+                <!-- <label><input type="checkbox" name="category" id="1" value="all">Все категории</label> -->
+                <div>
+                    {% for cat in categories %}
+                    <label><input type="checkbox" name="category" value="{{ cat }}">{{ cat }}</label>
+                    {% endfor %}
+                </div>
+        </span>
+        <button type="submit" class="btn">Искать</button>
+    </form>
+</div>

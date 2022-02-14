@@ -160,11 +160,20 @@ a:active{
     font-size: 18px;
     color: white;
 }
-.post-author a{
+.post-author,
+.post-category{
+    display: inline-block;
+}
+.post-category{
+    float: right;
+}
+.post-author a,
+.post-category a{
     color: white;
     font-size: 18px;
 }
-.post-author a:hover{
+.post-author a:hover,
+.post-category a:hover{
     color: rgba(252, 17, 17, 0.733);
     text-decoration: underline;
 }
@@ -721,6 +730,35 @@ a:active{
     outline: none;
     box-shadow: 5px 5px 15px black;
 }
+.search .category-hidden{
+    position: relative;
+    font-size: 16px;
+    background-color: white;
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+.search .category-hidden div{
+    display: none;
+    position: absolute;
+    width:max-content;
+    left: 0;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: rgb(191, 145, 235);
+    box-shadow: 5px 5px 15px black;
+}
+.search .category-hidden label{
+    display: block;
+}
+.search .category-hidden:hover{
+    box-shadow: 5px 5px 15px black;
+}
+.search .category-hidden:hover div{
+    display: block;
+    z-index: 10;
+}
+
 
 
 .subcomment{
@@ -729,5 +767,72 @@ a:active{
 }
 
 
+.pagination{
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 0;
+    color: white;
+}
+.pagination .step-links{
+    padding: 10px;
+    background-color: rgba(4, 15, 163, 0.473);
+    border-radius: 15px;
+    text-align: center;
+}
+.pagination a{
+    color: rgba(255, 255, 255, 0.904)
+}
+.pagination a:hover{
+    color: rgb(133, 23, 96);
+    font-weight: bold;
+}
+.pagination a:active{
+    opacity: 0.2;
+}
+.pagination .current{
+    color: rgb(133, 23, 96);
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+.categories{
+    position: fixed;
+    left: 20px;
+    word-wrap: break-word;
+    width: 200px;
+    padding: 10px;
+    background-color: rgba(4, 15, 163, 0.473);
+    border-radius: 10px;
+}
+.categories .categories-title{
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    font-size: 24px;
+    color: rgb(29, 26, 26);
+    text-align: center;
+}
+.categories ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.categories a{
+    color: white;
+    font-size: 20px;
+}
+.categories a:hover{
+    color: rgb(133, 23, 96);
+    font-weight: bold;
+    text-decoration: underline;
+}
+.categories a:active{
+    opacity: 0.3;
+}
+.categories .selected{
+    color: rgb(133, 23, 96);
+    font-weight: bold;
+}
   
   

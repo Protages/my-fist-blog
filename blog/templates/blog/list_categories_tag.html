@@ -1,0 +1,18 @@
+<div class="categories">
+    <ul>
+        <h3 class="categories-title">Категории</h3>
+        <hr>
+        {% if cat_selected == 0 %}
+            <li><a href="{% url 'post_list' %}" class="selected">Все категории</a></li>
+        {% else %}
+            <li><a href="{% url 'post_list' %}">Все категории</a></li>
+        {% endif %}
+        {% for cat in categories %}
+            {% if cat_selected == cat.pk %}
+                <li><a href="{{ cat.get_absolute_url }}" class="selected">{{ cat }}</a></li>
+            {% else %}
+                <li><a href="{{ cat.get_absolute_url }}">{{ cat }}</a></li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</div>

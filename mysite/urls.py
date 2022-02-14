@@ -27,6 +27,7 @@ urlpatterns = [
     path('cats/', include('cats.urls'), name='cats_list'),
     path('dogs/', include('dogs.urls'), name='dogs_list'),
     path('users/', include('users.urls')),
+    path('__debug__/', include('debug_toolbar.urls')),
 ]
 
 if settings.DEBUG:

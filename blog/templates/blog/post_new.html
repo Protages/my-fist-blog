@@ -8,6 +8,7 @@
 {% block content %}
     <div class="post">
         <h3 class="post-title">Новый пост</h3>
+        {% include 'registration/errors_msg.html' %}
         <form action="" method="POST" class="form-post">{% csrf_token %}
             {% include 'blog/form_post.html' %}
             <button type="submit" class="form-save btn">Сохранить</button>

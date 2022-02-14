@@ -4,6 +4,7 @@ from django.contrib.auth import login, logout
 from django.contrib.auth.views import PasswordChangeDoneView as BasePasswordChangeDoneView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.db.models import Count
 
 from .forms import UserCreationForm, UserProfileForm
 from .models import User
@@ -67,7 +68,7 @@ class AllUsersView(View):
     template_name = 'registration/all_users.html'
 
     def get(self, request):
-        users = User.objects.all()
+        users = User.objects.all().annotate(posts=Count('post')).order_by('-posts')
         context = {
             'users': users
         }

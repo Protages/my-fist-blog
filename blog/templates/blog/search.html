@@ -4,13 +4,19 @@
 {% block content %}
     <div class="registration">
         {% if posts %}
-        <h1 class="registration-header">{{ posts|length }} результата поиска по запросу: {{ query }}</h1>
+            <h1 class="registration-header">{{ posts|length }} результата поиска по запросу: {{ query }}</h1>
+            {% if categories %}
+                <h1 class="registration-header">По категориям: {{ categories|join:", " }}</h1>
+            {% else %}
+                <h1 class="registration-header">По всем категориям</h1>
+            {% endif %}
             {% for post in posts %}
                 <div class="post">
                     <h3 class="post-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
                     <p class="post-text">{{ post.text|linebreaksbr }}</p>
                     <p class="post-date">Дата создания: {{ post.create_date }}</p>
                     <p class="post-author">Автор поста: <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a></p>
+                    <p class="post-category">Категория: <a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></p>
                 </div>
             {% endfor %}
         {% else %}

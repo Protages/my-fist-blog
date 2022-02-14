@@ -7,7 +7,7 @@
     {% for user in users %}
         <div class="user post">
             <p><a href="{{ user.get_absolute_url }}">{{ user }}</a></p>
-            <p>Количество написанных постов: {{ user.post_set.all|length }}</p>
+            <p>Количество написанных постов: <a href="{{ user.get_absolute_url }}">{{ user.post_set.all|length }}</a></p>
             <!-- <p>{{ user.post_set.all }}</p> -->
         </div>
     {% endfor %}

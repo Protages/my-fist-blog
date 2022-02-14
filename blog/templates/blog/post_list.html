@@ -20,6 +20,41 @@
         <p class="post-text">{{ post.text|linebreaksbr }}</p>
         <p class="post-date">Дата создания: {{ post.create_date }}</p>
         <p class="post-author">Автор поста: <a href="{{ post.author.get_absolute_url }}">{{ post.author }}</a></p>
+        <p class="post-category">Категория: <a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a></p>
     </div>
     {% endfor %}
+
+    {% if page_obj.paginator.num_pages > 1 %}
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                {% if page_obj.previous_page_number != 1 %}
+                    <a href="?page={{ 1 }}">1 </a>
+                    {% if page_obj.previous_page_number|add:-1 != 1 %}
+                        <span>...</span> 
+                    {% else %}
+                        <span>,</span>
+                    {% endif %}
+                {% endif %}
+                <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+                <span>,</span>
+            {% endif %}
+
+            <span class="current">{{ page_obj.number }}</span>
+
+            {% if page_obj.has_next %}
+                <span>,</span>
+                <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                {% if page_obj.next_page_number != page_obj.paginator.num_pages %}
+                    {% if page_obj.next_page_number|add:1 != page_obj.paginator.num_pages %}
+                        <span>...</span>
+                    {% else %}
+                        <span>,</span>
+                    {% endif %}
+                    <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                {% endif %}
+            {% endif %}
+        </span>
+    </div>
+    {% endif %}
 {% endblock %}

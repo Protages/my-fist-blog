@@ -32,10 +32,4 @@ class User(AbstractUser):
 
     def get_absolute_url(self):
         return reverse('show_user_profile', kwargs={'username': self.username})
-
-    def count_posts(self):
-        return len(self.post_set.all())
-
-
-    
-
+ 
