@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from django.views import View
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from django.utils import timezone
 
 from .models import Post, Comment, Category
@@ -21,39 +21,31 @@ class PostListView(ListView):
         context['cat_selected'] = 0
         return context
 
+    def get_queryset(self, **kwargs):
+        return Post.objects.all().select_related('author', 'category')
+
 
 class CategoryListView(PostListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['cat_selected'] = self.cat.pk
+        context['cat_selected'] = self.kwargs['cat_slug']
         return context
 
-    def get(self, request, *args, **kwargs):
-        self.cat_slug = kwargs['cat_slug']
-        self.cat = Category.objects.get(slug=kwargs['cat_slug'])
-        return super().get(request, *args, **kwargs)
-
     def get_queryset(self):
-        return Post.objects.filter(category_id=self.cat.pk)
+        return Post.objects.filter(category__slug=self.kwargs['cat_slug']).select_related('author', 'category')
     
 
-def post_detail(request, post_slug):
-    post = get_object_or_404(Post, slug=post_slug)
-    comments = post.comment_set.filter(comment=None)
-    if request.method == 'POST':
-        form_comment = CommentForm(request.POST)
-        if form_comment.is_valid():
-            comment = form_comment.save(commit=False)
-            comment.author = request.user
-            comment.post = post
-            comment.create_date = datetime.now()
-            comment.save()
-    form_comment = CommentForm()  
-    return render(request, 'blog/post_detail.html', {
-        'post': post, 
-        'comments': comments, 
-        'form_comment': form_comment
-        })
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'blog/post_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['comments'] = kwargs['object'].comment_set.all().prefetch_related('author', 'comments__author')
+        return context
+
+    def get_object(self, queryset=None):
+        return Post.objects.filter(slug=self.kwargs.get('post_slug')).select_related('author', 'category').get()
 
 
 class EditCreatePostView(LoginRequiredMixin, View):
@@ -186,3 +178,22 @@ class AnswerForCommentView(View):
 #             post.save()
 #             return redirect('post_detail', pk=post.pk)
 #     return render(request, 'blog/post_edit.html', {'form': form})
+
+
+# def post_detail(request, post_slug):
+#     post = get_object_or_404(Post, slug=post_slug)
+#     comments = post.comment_set.filter(comment=None)
+#     if request.method == 'POST':
+#         form_comment = CommentForm(request.POST)
+#         if form_comment.is_valid():
+#             comment = form_comment.save(commit=False)
+#             comment.author = request.user
+#             comment.post = post
+#             comment.create_date = datetime.now()
+#             comment.save()
+#     form_comment = CommentForm()  
+#     return render(request, 'blog/post_detail.html', {
+#         'post': post, 
+#         'comments': comments, 
+#         'form_comment': form_comment
+#         })

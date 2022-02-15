@@ -68,7 +68,7 @@ class AllUsersView(View):
     template_name = 'registration/all_users.html'
 
     def get(self, request):
-        users = User.objects.all().annotate(posts=Count('post')).order_by('-posts')
+        users = User.objects.all().annotate(posts=Count('post')).order_by('-posts').prefetch_related('post_set')
         context = {
             'users': users
         }

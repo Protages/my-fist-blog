@@ -1,5 +1,21 @@
+<script src="/static/admin/js/vendor/jquery/jquery.js"></script>
+<script src="/static/admin/js/jquery.init.js"></script>
+<script src="/static/admin/js/core.js"></script>
+<script src="/static/admin/js/urlify.js"></script>
+<script src="/static/admin/js/prepopulate.js"></script>
 {% for f in form %}
     {{ f.label_tag }}
     <div class="form-post-{{ f.name }}">{{ f }}</div>
     <br>
 {% endfor %}
+<script id="django-admin-prepopulated-fields-constants" 
+        src="/static/admin/js/prepopulate_init.js" 
+        data-prepopulated-fields="[{
+            &quot;id&quot;: &quot;#id_slug&quot;, 
+                &quot;name&quot;: &quot;slug&quot;, 
+                &quot;dependency_ids&quot;: [&quot;#id_title&quot;], 
+                &quot;dependency_list&quot;: [&quot;title&quot;], 
+                &quot;maxLength&quot;: 200, 
+                &quot;allowUnicode&quot;: false
+            }]">
+</script>
