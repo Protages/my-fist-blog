@@ -9,7 +9,6 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ('title', 'slug', 'text', 'category')
         prepopulated_fields = {'slug': ('title',)}
-        
 
 
 class CommentForm(forms.ModelForm):

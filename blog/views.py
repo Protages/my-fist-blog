@@ -2,8 +2,9 @@ from datetime import datetime
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy, reverse
 from django.views import View
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, FormView
 from django.utils import timezone
 
 from .models import Post, Comment, Category
@@ -121,7 +122,28 @@ class SearchView(View):
         return render(request, self.template_name, context)
 
 
-class AnswerForCommentView(View):
+class AddCommentView(LoginRequiredMixin, FormView):
+    template_name = 'blog/comment_add.html'
+    form_class = CommentForm
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['post'] = Post.objects.filter(slug=self.kwargs['post_slug']).select_related('author').get()
+        return context
+
+    def form_valid(self, form):
+        form = form.save(commit=False)
+        form.author = self.request.user
+        form.post = Post.objects.get(slug=self.kwargs['post_slug'])
+        form.create_date = datetime.now()
+        form.save()
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('post_detail', kwargs={'post_slug': self.kwargs['post_slug']})
+
+
+class AnswerForCommentView(LoginRequiredMixin, View):
     template_name = 'blog/comment_answer.html'
 
     def get(self, request, post_slug, comment_pk):
